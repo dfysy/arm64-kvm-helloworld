@@ -1,11 +1,11 @@
 # arm64-kvm-helloworld
-##How to run
+## How to run
 
 just run "run.sh" in the top folder with "sudo",
 
 	sudo ./run.sh
 
-##How it works
+## How it works
 
 This is the simplest kvm helloworld code for arm64.
 
@@ -25,8 +25,8 @@ The guest code will be,
 3) the binary code will be convert to an char array in
 	../host/guest_code.h
 
-All steps are in mk file in guest, I don't use makefile as it is simpler
-and more straightforward.
+All steps are in the mk file in guest folder, I don't use makefile as
+using command in mk file is simpler and more straightforward.
 
 The host folder contains host code to do some necessary kvm check and
 create vm, cpu, memory, etc.
@@ -51,8 +51,8 @@ is set to guest via ioctl KVM_SET_USER_MEMORY_REGION,
 
 So, as the guest will write to address 0x1100, it is outside the vm's
 memory address range[0x10000, 0x20000]. This will cause a KVM_EXIT_MMIO
-in run->exit_reason. We output related infomation just as the data guest
-has written, that is 'h', 'e','l', 'l', 'o',
+in run->exit_reason. We output related infomation about exit address and
+the data guest has just written, that is 'h', 'e','l', 'l', 'o',
 
 	case KVM_EXIT_MMIO:
 		printf("unhandled KVM_EXIT_MMIO address:%x write:%d data:%x len:%d\n",
