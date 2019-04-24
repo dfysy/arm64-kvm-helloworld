@@ -1,0 +1,1 @@
+gcc -o host main.c -I include -I linux-headers

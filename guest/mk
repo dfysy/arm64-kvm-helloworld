@@ -1,0 +1,3 @@
+as head.S
+objcopy -O binary a.out guest_code
+xxd --include  guest_code ../host/guest_code.h
